@@ -1,0 +1,31 @@
+<%= link_to "Create Exam", exam_new_path %>
+<h3>List of Exams</h3>
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+  <%@exams.each do |exam|%>
+  <tr>
+    <td><%=exam.title%></td>
+    <td><%= link_to "Add Questions", question_new_path(exam_id: exam.id) %></td>
+  </tr>
+  <%end%>
+</table>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
